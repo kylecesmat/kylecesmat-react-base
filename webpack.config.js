@@ -1,15 +1,26 @@
-var path = require('path');
+var webpack      = require('webpack');
+var path         = require('path');
+var npmPath      = path.resolve(__dirname, 'node_modules');
+var autoprefixer = require('autoprefixer-core');
+var config       = {
+    sassOptions  : (
+        '?outputStyle=nested&includePaths[]=' + npmPath
+    )
+};
 
 module.exports = {
-  entry: "./src/main.js",
+    entry : [
+      'webpack/hot/dev-server',
+      './src/main.js'
+    ],
 
-  output: {
+    output: {
     path: path.resolve(__dirname, "/public/static/build/"),
     filename: "main.js",
     publicPath: "static/build/"
-  },
+    },
 
-  module: {
+    module: {
     preLoaders: [
         {
             test    : /\.jsx?$/,
@@ -19,12 +30,13 @@ module.exports = {
     ],
     loaders: [
         {
-            test   : /\.css$/,
-            loader : "style-loader!css-loader!autoprefixer-loader"
+            test    : /\.scss$/,
+            loader  : 'style!css!postcss!sass' + config.sassOptions,
+            include : /scss/
         },
         {
-            test   : /\.sass$/,
-            loader : "style-loader!css-loader!autoprefixer-loader!sass-loader"
+            test   : /\.css$/,
+            loader : 'style-loader!css-loader'
         },
         {
             test   : /\.gif$/,
@@ -50,26 +62,31 @@ module.exports = {
             loader : "react-hot!babel", exclude: [/node_modules/, /public/]
         },
 
-      {
-        test: /\.json$/,
-        loader: "json-loader"
-    }
+        {
+            test   : /\.json$/,
+            loader : "json-loader"
+        }
     ]
-  },
+    },
 
-  resolve : {
-    extensions: ["", ".js", ".jsx"],
-    alias : {
-        actions        : path.resolve(__dirname, "/src/actions"),
-        api            : path.resolve(__dirname, "/src/api"),
-        components     : path.resolve(__dirname, "/src/components"),
-        pages          : path.resolve(__dirname, "/src/pages"),
-        stores         : path.resolve(__dirname, "/src/stores"),
-        EventConstants : path.resolve(__dirname, "/src/EventConstants.js")
+    resolve    : {
+        extensions : ['', '.js', '.jsx', '.css', '.scss'],
+        alias      : {
+            actions        : path.resolve(__dirname, "/src/actions"),
+            api            : path.resolve(__dirname, "/src/api"),
+            components     : path.resolve(__dirname, "/src/components"),
+            pages          : path.resolve(__dirname, "/src/pages"),
+            stores         : path.resolve(__dirname, "/src/stores"),
+            EventConstants : path.resolve(__dirname, "/src/EventConstants.js")
+        }
+    },
+    plugins : [
+      new webpack.NoErrorsPlugin()
+    ],
+    postcss : function() {
+        return [autoprefixer];
+    },
+    eslint: {
+        configFile: ".eslintrc"
     }
-  },
-
-  eslint: {
-    configFile: ".eslintrc"
-  }
 };

@@ -1,6 +1,8 @@
 import React from "react/addons";
 import { RouteHandler } from "react-router";
 
+require('../scss/app.scss');
+
 let Application = React.createClass({
   render() {
     return (

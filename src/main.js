@@ -1,6 +1,5 @@
 import "babel/polyfill"; // babel polyfill from Promisses and stuff
 import "whatwg-fetch"; // fetch polyfill
-import "normalize.css";
 
 import React from "react/addons";
 
