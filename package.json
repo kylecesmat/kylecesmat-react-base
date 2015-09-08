@@ -8,8 +8,8 @@
     "url": "http://kylecesmat.com"
   },
   "scripts": {
-    "build": "webpack -p",
-    "start": "webpack-dev-server --debug --devtool eval-source-map --output-pathinfo --watch --colors --inline --hot --content-base public --port 9001"
+    "dist"  : "webpack -p",
+    "start" : "webpack-dev-server -d --debug --devtool eval-source-map --output-pathinfo --watch --colors --inline --hot --content-base public --port 9001"
   },
   "dependencies": {
     "classname": "0.0.0",
