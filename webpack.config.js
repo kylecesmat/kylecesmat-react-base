@@ -1,7 +1,7 @@
-var webpack      = require('webpack');
+var webpack      = require('webpack'); // eslint-disable-line
 var path         = require('path');
 var npmPath      = path.resolve(__dirname, 'node_modules');
-var autoprefixer = require('autoprefixer-core');
+var autoprefixer = require('autoprefixer');
 var config       = {
     sassOptions  : (
         '?outputStyle=nested&includePaths[]=' + npmPath
