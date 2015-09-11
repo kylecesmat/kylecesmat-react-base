@@ -1,33 +1,25 @@
-import "babel/polyfill"; // babel polyfill from Promisses and stuff
-import "whatwg-fetch"; // fetch polyfill
-
-import React from "react/addons";
-
+import React   from "react/addons";
 import Fluxxor from "fluxxor";
-import stores from "./stores/";
+import stores  from "./stores/";
 import actions from "./actions/";
 let flux = new Fluxxor.Flux(stores, actions);
 
 import Router from "react-router";
 import routes from "./Router";
 
-/*=================================
-=            For debug            =
-=================================*/
+// debugging
 window.React = React; /* To enable Chrome react plugin */
-window.flux = flux;
+window.flux  = flux;
 
 flux.on("dispatch", (type, payload) => {
-  if (console && console.log) {
-    console.log("[Dispatch]", type, payload);
-  }
+    if (console && console.log) {
+        console.log("[Dispatch]", type, payload);
+    }
 });
-/*-------------------------------*/
 
-
-/*==========  Mount application  ==========*/
+// mount app
 document.addEventListener("DOMContentLoaded", () => {
-  Router.run(routes, Handler => {
-    React.render(<Handler flux={flux} />, document.body);
-  });
+    Router.run(routes, Handler => {
+        React.render(<Handler flux={flux} />, document.body);
+    });
 });
