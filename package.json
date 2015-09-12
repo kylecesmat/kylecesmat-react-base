@@ -1,11 +1,15 @@
 {
-  "name": "kylecesmat-react-base",
+  "name": "react-base",
   "version": "0.0.0",
-  "description": "kylecesmat-react",
+  "description": "A base package for getting up and running with React, Webpack, React-Router, Flux, and SASS",
   "author": {
     "name": "Kyle Cesmat",
     "email": "kyle@kylecesmat.com",
     "url": "http://kylecesmat.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kylecesmat/react-base.git"
   },
   "scripts": {
     "dist": "webpack -p",
