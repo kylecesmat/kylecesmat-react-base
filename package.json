@@ -17,8 +17,7 @@
     "lodash": "^3.9.3",
     "normalize.css": "^3.0.3",
     "react": "^0.13.3",
-    "react-router": "^0.13.3",
-    "whatwg-fetch": "^0.9.0"
+    "react-router": "^0.13.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.2",

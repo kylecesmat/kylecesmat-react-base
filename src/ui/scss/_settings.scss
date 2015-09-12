@@ -1,0 +1,58 @@
+@import "./utilities/functions";
+
+$em-base: 16px !default;
+
+// Font-size base
+$font-size-base : rem-calc(16) !default;
+
+// Base line height
+$line-height-base : 1.5 !default;
+
+// Media Sizes
+$media-xsmall : 30em !default; // 480px
+$media-small  : 48em !default; // 768px
+$media-medium : 62em !default; // 992px
+$media-large  : 75em !default; // 1200px
+
+// Grid Settings
+$column-count    : 12 !default;
+$column-selector : '.' !default;
+$offset-modifier : 'offset' !default;
+
+$gutter-width        : 1rem !default;
+$outer-margin        : 2rem !default;
+$gutter-compensation : (($gutter-width / 2) * -1) !default;
+$half-gutter-width   : ($gutter-width / 2) !default;
+
+$viewport-xs : #{$media-xsmall} !default;
+$viewport-sm : #{$media-small} !default;
+$viewport-md : #{$media-medium} !default;
+$viewport-lg : #{$media-large} !default;
+
+$container-sm : #{$media-small} + $gutter-width !default;
+$container-md : #{$media-medium} + $gutter-width !default;
+$container-lg : #{$media-large} + $gutter-width !default;
+
+$xs : 'xsmall' !default;
+$sm : 'small'  !default;
+$md : 'medium' !default;
+$lg : 'large'  !default;
+
+// Removed to match 'size-x' syntax
+$block-delimiter    : '' !default;
+$element-delimiter  : '-' !default;
+$modifier-delimiter : '-' !default;
+
+$defaultQuery : $viewport-xs !default;
+
+$sizes : #{$xs}, #{$sm}, #{$md}, #{$lg} !default;
+
+$queries : (
+    #{$xs} : #{$viewport-xs},
+    #{$sm} : #{$viewport-sm},
+    #{$md} : #{$viewport-md},
+    #{$lg} : #{$viewport-lg}
+) !default;
+
+$column-properties : 'flex-basis', 'max-width' !default;
+$offset-properties : 'margin-left' !default;
