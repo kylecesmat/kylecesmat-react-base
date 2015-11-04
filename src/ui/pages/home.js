@@ -1,8 +1,8 @@
-import React from "react/addons";
-let { PureRenderMixin } = React.addons;
+'use strict';
+import React from "react";
 
 let HomePage = React.createClass({
-  mixins: [ PureRenderMixin ],
+    displayName : 'HomePage',
 
     render() {
         return (

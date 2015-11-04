@@ -1,3 +1,4 @@
+'use strict';
 var webpack      = require('webpack'); // eslint-disable-line
 var path         = require('path');
 var npmPath      = path.resolve(__dirname, 'node_modules');
@@ -58,10 +59,10 @@ module.exports = {
             test   : /\.(woff|woff2|ttf|eot)/,
             loader : "url-loader?limit=1" },
         {
-            test   : /\.jsx?$/,
-            loader : "react-hot!babel", exclude: [/node_modules/, /public/]
+            test    : /\.jsx?$/,
+            exclude : [/node_modules/, /public/],
+            loader  : "react-hot!babel?presets[]=react&presets[]=es2015"
         },
-
         {
             test   : /\.json$/,
             loader : "json-loader"

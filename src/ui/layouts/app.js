@@ -1,14 +1,16 @@
-import React            from "react/addons";
-import { RouteHandler } from "react-router";
+'use strict';
+import React from "react";
 
 require('normalize.css');
 require('../scss/app.scss');
 
 let Application = React.createClass({
+    displayName : 'Application',
+
     render() {
         return (
             <div className='app'>
-                <RouteHandler key={name} {...this.props} />
+                {this.props.children}
             </div>
         );
     }
